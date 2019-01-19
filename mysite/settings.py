@@ -91,10 +91,10 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': 'postgres://pamigmuuxladvg:a563efaa10f8406bc4e5ea616512946f51a3ab6e8382e08dd85cb51e48af0b00@ec2-54-243-223-245.compute-1.amazonaws.com:5432/dals0k2to9mgse',
+        'NAME': 'd1aeu62ld54d3i',
+        'USER': 'xxhyenmqwfzdqb',
+        'PASSWORD': '2229f9e298b0abb0aa5220afa65c71dc397b7ab1bac6f9f814d033d2cf074dad',
+        'HOST': 'postgres://xxhyenmqwfzdqb:2229f9e298b0abb0aa5220afa65c71dc397b7ab1bac6f9f814d033d2cf074dad@ec2-107-20-183-142.compute-1.amazonaws.com:5432/d1aeu62ld54d3i',
         'PORT': '5432',
     }
 }
@@ -136,15 +136,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
-
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'static'),
-)
 
 # Update database configuration with $DATABASE_URL.
 db_from_env = dj_database_url.config(conn_max_age=500)
@@ -160,8 +153,5 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
-try:
-    from .local_settings import *
-except ImportError:
-    pass
+
 
